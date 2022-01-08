@@ -122,8 +122,48 @@ read(0, buf, 3);
 		}
 	}
 	if(val == 1){
-	       val = 0;
-	       macro1()
+		void f5()
+		{
+		int z = 0;
+		int z1 = 0;
+		int z2 = 0;
+		int x1 = MAX_Y;
+		int x = 0;
+		char buf; 
+		char bufz[256][256];
+		while(z1 <= MAX_Y){
+			bufz[z1][z] = spc[z][z1];
+			z++;
+			if(z >= MAX_Y +1){
+				bufz[z1][z] = '\0';
+				z1++;
+				z = 0;
+			}
+		}
+		while(z2 < MAX_Y){
+		if(bufz[z2][x] == '.' && bufz[z2][x1] == '*'){
+			buf = bufz[z2][x];
+			bufz[z2][x] = bufz[z2][x1];
+			bufz[z2][x1] = buf;
+			x1--;
+		}
+		else if(bufz[z2][x] == '*' && bufz[z2][x1] == '.')
+		x++;
+		else if(bufz[z2][x] == '*' && bufz[z2][x1] == '*')
+		x++;
+		else if(bufz[z2][x] == '.' && bufz[z2][x1] == '.')
+		x1--;
+		if(x > x1){
+		print(bufz[z2], s);
+		z2++;
+		x = 0;
+		x1 = MAX_Y;
+		}
+	}
+		}
+		f5();
+		val = 0;
+		macro1()
 	}	       
 	else
 		init3(0);

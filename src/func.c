@@ -295,10 +295,10 @@ spc[figures[rotate].c.y][figures[rotate].c.x] = '.';
 spc[figures[rotate].d.y][figures[rotate].d.x] = '.';
 }
 else{
-spc[figures[rotate].a.y][figures[rotate].a.x] = 'a';
-spc[figures[rotate].b.y][figures[rotate].b.x] = 'b';
-spc[figures[rotate].c.y][figures[rotate].c.x] = 'c';
-spc[figures[rotate].d.y][figures[rotate].d.x] = 'd';
+spc[figures[rotate].a.y][figures[rotate].a.x] = '*';
+spc[figures[rotate].b.y][figures[rotate].b.x] = '*';
+spc[figures[rotate].c.y][figures[rotate].c.x] = '*';
+spc[figures[rotate].d.y][figures[rotate].d.x] = '*';
 }
 }
 
@@ -392,15 +392,14 @@ char buf2[MAX_X +2];
 				for(y2 = y1 ; y2 > 1; y2--){
 					if(strcmp(spc[y2 -1], empty_line) == 0)
 					break;
-					else{
-					strcpy(buf2, spc[y2 -1]);
-					strcpy(spc[y2 -1], spc[y2]);
+					else{ strcpy(buf2, spc[y2 -1]); strcpy(spc[y2 -1], spc[y2]);
 					strcpy(spc[y2], buf2);
 					}
 				}
 			}
 		}
 	}
+
 }
 
 
@@ -410,15 +409,31 @@ char buf2[MAX_X +2];
 
 
 
-
-
-
-
-
-
-
-
-
+/*
+void f4()
+{
+	int y = 0;
+	int x = 0;
+	int y1, x1;
+	char buf;
+	y1 = MAX_Y;
+	x1 = MAX_X;
+	while(y < y1){
+		if(spc[y][0] == '.' && spc[y1][0] == '*'){
+			buf = spc[y][0];
+			spc[y][0] = spc[y1][0];
+			spc[y1][0] = buf;
+			y1--;
+		}
+		else if(spc[y][0] == '*' && spc[y1][0] == '.')
+		y++;
+		else if(spc[y][0] == '*' && spc[y1][0] == '*')
+		y++;
+		else if(spc[y][0] == '.' && spc[y1][0] == '.')
+		y1--;
+	}
+}
+*/
 
 
 
