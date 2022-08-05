@@ -10,8 +10,10 @@ r - право
 
 Space - вращение
 
+ctrl+/ - выход
+
 # Установка:
-cd src; gcc *.c --output=tetris
+gcc -Og tetris.c -o tetris
 
 # Состояние:
 Заброшен
